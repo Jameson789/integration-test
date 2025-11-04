@@ -10,7 +10,14 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "transform": {}
+    "transform": {},
+    "globalSetup": "<rootDir>/node_modules/@databases/mysql-test/jest/globalSetup",
+    "globalTeardown": "<rootDir>/node_modules/@databases/mysql-test/jest/globalTeardown"
+  },
+  "mysql": {
+    "test": {
+      "image": "mysql:8.4"
+    }
   },
   "author": "",
   "license": "ISC",
