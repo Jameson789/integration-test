@@ -5,7 +5,7 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "test": "NODE_ENV=test cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "dev": "nodemon app.js"
   },
   "jest": {
@@ -19,6 +19,7 @@
     "express": "^5.1.0"
   },
   "devDependencies": {
+    "better-sqlite3": "^12.4.1",
     "cross-env": "^10.1.0",
     "jest": "^30.2.0",
     "nodemon": "^3.1.10",

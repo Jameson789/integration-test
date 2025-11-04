@@ -16,3 +16,15 @@ test('hello world', async () => {
     })
 
 })
+
+test('POST /users and GET /users', async () => {
+  const post = await request(app)
+    .post('/users').send({ name: 'Alice'});
+    expect(post.statusCode).toEqual(201);
+  
+  const get = await request(app)
+    .get('/users');
+  expect(get.body).toEqual([{ id: 1, name: 'Alice' }]);
+
+  console.log(get.body);
+})
