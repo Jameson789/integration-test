@@ -15,6 +15,11 @@ app.get('/users', async (req, res) => {
 
 app.post('/users', async (req, res) => {
   const { name } = req.body;
+
+  if (!name) {
+    return res.status(400).json({ error: 'Name is required' });
+  }
+
   const [result] = await db.query('INSERT INTO users (name) VALUES (?)', [name]);
   res.status(201).json({ id: result.insertId, name });
 });
